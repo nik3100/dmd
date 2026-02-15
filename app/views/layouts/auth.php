@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title ?? 'Auth') ?> - Universal Business Directory</title>
+    <title><?= htmlspecialchars($title ?? 'Auth') ?> - Digital Marketing Display</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50 min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8">
@@ -13,7 +13,7 @@
                 <?= htmlspecialchars($title ?? 'Authentication') ?>
             </h2>
             <p class="mt-2 text-center text-sm text-gray-600">
-                Universal Business Directory
+                Digital Marketing Display
             </p>
         </div>
         

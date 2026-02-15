@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?= htmlspecialchars($title ?? 'Dashboard') ?> - Universal Business Directory</title>
+    <title><?= htmlspecialchars($title ?? 'Dashboard') ?> - Digital Marketing Display</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-gray-50">
@@ -12,7 +12,7 @@
             <div class="flex justify-between h-16">
                 <div class="flex">
                     <div class="flex-shrink-0 flex items-center">
-                        <h1 class="text-xl font-bold text-gray-900">Universal Business Directory</h1>
+                        <h1 class="text-xl font-bold text-gray-900">Digital Marketing Display</h1>
                     </div>
                 </div>
                 <div class="flex items-center space-x-4">

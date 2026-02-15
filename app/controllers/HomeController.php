@@ -13,7 +13,7 @@ class HomeController extends Controller
 {
     public function index(): void
     {
-        $this->view('home.index', ['title' => 'Universal Business Directory']);
+        $this->view('home.index', ['title' => 'Digital Marketing Display']);
     }
 
     public function notFound(): void

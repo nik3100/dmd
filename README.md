@@ -1,4 +1,4 @@
-# Universal Business Directory (DMD)
+# Digital Marketing Display (DMD)
 
 Core PHP MVC foundation — scalable structure, ready for Laravel migration later.
 

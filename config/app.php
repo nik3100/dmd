@@ -7,7 +7,7 @@ declare(strict_types=1);
  */
 
 return [
-    'name' => 'Universal Business Directory',
+    'name' => 'Digital Marketing Display',
     'url'  => 'http://localhost/dmd/public',
     'timezone' => 'UTC',
 ];

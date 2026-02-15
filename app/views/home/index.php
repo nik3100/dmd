@@ -6,7 +6,7 @@
     <title><?= htmlspecialchars($title ?? 'Home') ?></title>
 </head>
 <body>
-    <h1>Universal Business Directory</h1>
+    <h1>Digital Marketing Display</h1>
     <p>MVC foundation is running.</p>
 </body>
 </html>

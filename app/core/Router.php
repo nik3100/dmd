@@ -61,11 +61,16 @@ class Router
     }
 
     private function pathToRegex(string $path): string
-    {
-        $path = trim($path, '/');
-        $path = preg_replace('/\{([a-zA-Z_]+)\}/', '([^/]+)', $path);
-        return '#^' . $path . '$#';
+{
+    if ($path === '/') {
+        return '#^/$#';
     }
+
+    $path = trim($path, '/');
+    $path = preg_replace('/\{([a-zA-Z_]+)\}/', '([^/]+)', $path);
+
+    return '#^/' . $path . '$#';
+}
 
     private function getParamNames(string $path): array
     {

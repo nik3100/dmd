@@ -1,5 +1,5 @@
 -- =====================================================
--- Universal Business Directory Database Schema
+-- Digital Marketing Display Database Schema
 -- Database: digitalmarketing_display
 -- Engine: InnoDB
 -- Charset: utf8mb4
