@@ -124,6 +124,7 @@ CREATE TABLE `locations` (
 CREATE TABLE `listings` (
     `id` BIGINT UNSIGNED NOT NULL AUTO_INCREMENT,
     `user_id` BIGINT UNSIGNED NOT NULL,
+    `plan_id` INT UNSIGNED NULL DEFAULT NULL,
     `category_id` INT UNSIGNED NOT NULL,
     `location_id` INT UNSIGNED NULL DEFAULT NULL,
     `title` VARCHAR(255) NOT NULL,
@@ -132,9 +133,10 @@ CREATE TABLE `listings` (
     `short_description` VARCHAR(500) NULL DEFAULT NULL,
     `address` TEXT NULL DEFAULT NULL,
     `phone` VARCHAR(50) NULL DEFAULT NULL,
+    `whatsapp` VARCHAR(50) NULL DEFAULT NULL,
     `email` VARCHAR(255) NULL DEFAULT NULL,
     `website` VARCHAR(500) NULL DEFAULT NULL,
-    `status` ENUM('draft', 'pending_approval', 'approved', 'rejected', 'suspended') NOT NULL DEFAULT 'draft',
+    `status` ENUM('draft', 'pending_approval', 'approved', 'rejected', 'expired', 'suspended') NOT NULL DEFAULT 'draft',
     `featured` TINYINT(1) NOT NULL DEFAULT 0,
     `view_count` INT UNSIGNED NOT NULL DEFAULT 0,
     `deleted_at` TIMESTAMP NULL DEFAULT NULL,
@@ -143,6 +145,7 @@ CREATE TABLE `listings` (
     PRIMARY KEY (`id`),
     UNIQUE KEY `idx_listings_slug` (`slug`),
     KEY `idx_listings_user_id` (`user_id`),
+    KEY `idx_listings_plan_id` (`plan_id`),
     KEY `idx_listings_category_id` (`category_id`),
     KEY `idx_listings_location_id` (`location_id`),
     KEY `idx_listings_status` (`status`),
@@ -153,6 +156,8 @@ CREATE TABLE `listings` (
     KEY `idx_listings_search` (`status`, `featured`, `deleted_at`),
     CONSTRAINT `fk_listings_user` FOREIGN KEY (`user_id`) 
         REFERENCES `users` (`id`) ON DELETE RESTRICT,
+    CONSTRAINT `fk_listings_plan` FOREIGN KEY (`plan_id`) 
+        REFERENCES `plans` (`id`) ON DELETE SET NULL,
     CONSTRAINT `fk_listings_category` FOREIGN KEY (`category_id`) 
         REFERENCES `categories` (`id`) ON DELETE RESTRICT,
     CONSTRAINT `fk_listings_location` FOREIGN KEY (`location_id`) 

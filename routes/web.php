@@ -51,3 +51,21 @@ $router->get('/admin/locations/children/{parentId}', 'App\Controllers\LocationCo
 
 // Public location API
 $router->get('/api/locations/tree', 'App\Controllers\LocationController', 'tree');
+$router->get('/api/locations/children/{parentId}', 'App\Controllers\LocationController', 'childrenPublic');
+
+// Listings: public
+$router->get('/listings', 'App\Controllers\ListingController', 'index');
+$router->get('/listings/show/{slug}', 'App\Controllers\ListingController', 'show');
+
+// Listings: user (owner)
+$router->get('/my-listings', 'App\Controllers\ListingController', 'myListings', 'auth');
+$router->get('/listings/create', 'App\Controllers\ListingController', 'create', 'auth');
+$router->post('/listings/store', 'App\Controllers\ListingController', 'store', 'auth');
+$router->get('/listings/edit/{id}', 'App\Controllers\ListingController', 'edit', 'auth');
+$router->post('/listings/update/{id}', 'App\Controllers\ListingController', 'update', 'auth');
+$router->post('/listings/delete/{id}', 'App\Controllers\ListingController', 'delete', 'auth');
+
+// Listings: admin approval
+$router->get('/admin/listings/pending', 'App\Controllers\ListingController', 'pending', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/listings/approve/{id}', 'App\Controllers\ListingController', 'approve', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/listings/reject/{id}', 'App\Controllers\ListingController', 'reject', 'App\Middleware\AdminMiddleware');

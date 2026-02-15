@@ -288,4 +288,23 @@ class LocationController extends Controller
         $tree = Location::getTree(true);
         $this->json(['success' => true, 'data' => $tree]);
     }
+
+    /**
+     * Public API: Get children for dropdowns (e.g. listing form). parentId 0 = roots.
+     */
+    public function childrenPublic(int $parentId): void
+    {
+        if ($parentId === 0) {
+            $roots = Location::getRoots(true);
+            $list = array_map(static fn($r) => [
+                'id' => (int) $r['id'],
+                'name' => $r['name'],
+                'slug' => $r['slug'],
+                'type' => $r['type'],
+            ], $roots);
+        } else {
+            $list = Location::getChildrenForSelect($parentId);
+        }
+        $this->json(['success' => true, 'data' => $list]);
+    }
 }

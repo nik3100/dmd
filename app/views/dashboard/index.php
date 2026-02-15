@@ -72,6 +72,8 @@
                         <h3 class="text-lg font-semibold text-gray-700">Quick Actions</h3>
                         <div class="mt-2 space-x-4">
                             <a href="/" class="text-indigo-600 hover:text-indigo-500">Home</a>
+                            <a href="/listings" class="text-indigo-600 hover:text-indigo-500">Listings</a>
+                            <a href="/my-listings" class="text-indigo-600 hover:text-indigo-500">My Listings</a>
                             <a href="/dashboard" class="text-indigo-600 hover:text-indigo-500">Dashboard</a>
                         </div>
                     </div>
