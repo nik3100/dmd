@@ -104,8 +104,8 @@ class AuthController extends Controller
         Auth::login($user);
         Csrf::regenerate(); // Regenerate CSRF token after successful login
 
-        // Redirect to intended page or dashboard
-        $redirect = $_GET['redirect'] ?? '/dashboard';
+        // Redirect to intended page or dashboard (validate to prevent open redirect attacks)
+        $redirect = $this->validateRedirect($_GET['redirect'] ?? null, '/dashboard');
         $this->redirect($redirect);
     }
 
