@@ -24,3 +24,17 @@ $router->get('/logout', 'App\Controllers\AuthController', 'logout');
 
 // Protected routes (require authentication)
 $router->get('/dashboard', 'App\Controllers\DashboardController', 'index', 'auth');
+
+// Admin category routes (admin only)
+$router->get('/admin/categories', 'App\Controllers\CategoryController', 'index', 'App\Middleware\AdminMiddleware');
+$router->get('/admin/categories/create', 'App\Controllers\CategoryController', 'create', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/store', 'App\Controllers\CategoryController', 'store', 'App\Middleware\AdminMiddleware');
+$router->get('/admin/categories/edit/{id}', 'App\Controllers\CategoryController', 'edit', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/update/{id}', 'App\Controllers\CategoryController', 'update', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/delete/{id}', 'App\Controllers\CategoryController', 'delete', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/toggle-active/{id}', 'App\Controllers\CategoryController', 'toggleActive', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/suggestions/approve/{id}', 'App\Controllers\CategoryController', 'approveSuggestion', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/categories/suggestions/reject/{id}', 'App\Controllers\CategoryController', 'rejectSuggestion', 'App\Middleware\AdminMiddleware');
+
+// Public API routes
+$router->get('/api/categories/tree', 'App\Controllers\CategoryController', 'tree');
