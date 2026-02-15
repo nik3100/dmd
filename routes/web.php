@@ -38,3 +38,16 @@ $router->post('/admin/categories/suggestions/reject/{id}', 'App\Controllers\Cate
 
 // Public API routes
 $router->get('/api/categories/tree', 'App\Controllers\CategoryController', 'tree');
+
+// Admin location routes (admin only)
+$router->get('/admin/locations', 'App\Controllers\LocationController', 'index', 'App\Middleware\AdminMiddleware');
+$router->get('/admin/locations/create', 'App\Controllers\LocationController', 'create', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/locations/store', 'App\Controllers\LocationController', 'store', 'App\Middleware\AdminMiddleware');
+$router->get('/admin/locations/edit/{id}', 'App\Controllers\LocationController', 'edit', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/locations/update/{id}', 'App\Controllers\LocationController', 'update', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/locations/delete/{id}', 'App\Controllers\LocationController', 'delete', 'App\Middleware\AdminMiddleware');
+$router->post('/admin/locations/toggle-active/{id}', 'App\Controllers\LocationController', 'toggleActive', 'App\Middleware\AdminMiddleware');
+$router->get('/admin/locations/children/{parentId}', 'App\Controllers\LocationController', 'children', 'App\Middleware\AdminMiddleware');
+
+// Public location API
+$router->get('/api/locations/tree', 'App\Controllers\LocationController', 'tree');
